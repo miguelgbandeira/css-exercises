@@ -4,7 +4,21 @@
 }
 
 .container {
+  height: 300px;
   text-align: center;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 2fr 1fr 4fr 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar nav"
+    "sidebar article"
+    "footer footer";
+}
+
+ul {
+  list-style: none;
 }
 
 .container div {
@@ -17,6 +31,28 @@
 
 .header {
   background-color: #393f4d;
+  grid-column: 1 / -1;
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  justify-self: start;
+}
+
+.menu {
+  align-self: center;
+}
+
+.menu ul {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
 }
 
 .menu ul,
@@ -25,7 +61,12 @@
 }
 
 .sidebar {
-  background-color: #C50208;
+  background-color: #c50208;
+  grid-area: sidebar;
+  display: grid;
+  grid-column: 1fr;
+  grid-row: repeat(4, 1fr);
+  gap: 50px;
 }
 
 .sidebar .photo {
@@ -34,18 +75,32 @@
   font-size: 12px;
   font-weight: normal;
   border-radius: 10px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .sidebar .side-content {
   background-color: white;
   color: black;
   font-size: 16px;
   font-weight: normal;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav {
-  background-color: #C50208;
+  background-color: #c50208;
+  grid-area: nav;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
 }
 
 .nav ul li {
@@ -55,6 +110,11 @@
 
 .article {
   background-color: #bccbde;
+  grid-area: article;
+  display: grid;
+  gap: 15px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .article p {
@@ -65,15 +125,17 @@
 }
 
 .article .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
   text-align: center;
+  height: 200px;
 }
 
 .card p {
   color: black;
   font-weight: normal;
   font-size: 14px;
+  padding: 5px;
 }
 
 .card .title {
@@ -83,6 +145,7 @@
 
 .footer {
   background-color: #393f4d;
+  grid-area: footer;
 }
 
 .footer p {
